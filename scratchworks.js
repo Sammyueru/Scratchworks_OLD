@@ -1,7 +1,7 @@
 class Scratchworks {
     getInfo() {
         return {
-            "id": "Scratchworks",
+            "id": "scratchworks",
             "name": "Scratchworks - Steamworks for TurboWarp",
 
             "blocks": [
