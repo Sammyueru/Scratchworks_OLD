@@ -1,267 +1,274 @@
-class Scratchworks {
-    constructor (runtime, win) {
-	this.runtime = runtime;
-        this.win = win;
-        this.document = win.document;
-        //this.requireJS = win.document.createElement('script');
-        //this.requireJS.src = 'require.js';
-        //this.win.document.body.append(this.requireJS);
-        win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
-        //this.greenworks = require(['./greenworks']);
-        win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./greenworks.js"></script>';
-        //this.greenworks = win.document.getElementsByTagName('head')[0].appendChild('<script src="./greenworks.js"></script>');
-    }
+(function(Scratch) {
+    'use strict';
+    class Scratchworks {
+        constructor (runtime, win) {
+            this.runtime = runtime;
+            this.win = win;
+            this.document = win.document;
+            //this.requireJS = win.document.createElement('script');
+            //this.requireJS.src = 'require.js';
+            //this.win.document.body.append(this.requireJS);
+            win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
+            //this.greenworks = require(['./greenworks']);
+            win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./greenworks.js"></script>';
+            //this.greenworks = win.document.getElementsByTagName('head')[0].appendChild('<script src="./greenworks.js"></script>');
+        }
 
-    getInfo() {
-        return {
-            "id": "Scratchworks",
-            "name": "Scratchworks - Steamworks for TurboWarp",
+        getInfo() {
+            return {
+                "id": "Scratchworks",
+                "name": "Scratchworks - Steamworks for TurboWarp",
 
-            "blocks": [
-                {
-                    opcode: 'initScratchworks',
-                    blockType: "Boolean",
-                    text: 'General: Initialize Scratchworks',
-                },
-                {
-                    opcode: 'mySteamId DOES NOT WORK YET',
-                    blockType: "reporter",
-                    text: 'General: Players Steam ID'
-                },
-                {
-                    opcode: 'hasSteamAppOwnership',
-                    blockType: "Boolean",
-                    text: 'Auth: Has Steam Application Ownership of [STEAMAPPID] with Secret Key of [SECRETKEY]',
-                    arguments: {
-                        STEAMAPPID: {
-                            type: "number",
-                            defaultValue: 480
-                        },
-                        SECRETKEY: {
+                "blocks": [
+                    {
+                        opcode: 'initScratchworks',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: 'General: Initialize Scratchworks',
+                    },
+                    {
+                        opcode: 'mySteamId DOES NOT WORK YET',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'General: Players Steam ID'
+                    },
+                    {
+                        opcode: 'hasSteamAppOwnership',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: 'Auth: Has Steam Application Ownership of [STEAMAPPID] with Secret Key of [SECRETKEY]',
+                        arguments: {
+                            STEAMAPPID: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 480
+                            },
+                            SECRETKEY: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: ''
+                            }
+                        }
+                    },
+                    {
+                        opcode: 'getStat',
+                        blockType: Scratch.BlockType.REPORTER,
+                        text: 'Stats: Get Stat [STATNAME] | is it a float: [ISFLOAT]',
+                        arguments: {
+                            STATNAME: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: ""
+                            },
+                            ISFLOAT: {
+                                type: Scratch.ArgumentType.BOOLEAN,
+                                defaultValue: false
+                            }
+                        }
+                    },
+                    {
+                        opcode: 'setStat',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: 'Stats: Set Stat [STATNAME] to [STATDATA]',
+                        arguments: {
+                            STATNAME: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: ""
+                            },
+                            STATDATA: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: ""
+                            }
+                        }
+                    },
+                    {
+                        opcode: 'storeStat',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'Stats: Store Stats on Steams servers',
+                    },
+                    {
+                        opcode: 'awardAchievement',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'Achievement: Award Achievement [ACHIEVEMENT]',
+                        arguments: {
+                            ACHIEVEMENT: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: ''
+                            },
+                        }
+                    },
+                    {
+                        opcode: 'ownsAchievement',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: 'Achievement: Owns [ACHIEVEMENT]',
+                        arguments: {
+                            ACHIEVEMENT: {
+                                type: Scratch.ArgumentType.STRING,
+                                defaultValue: ''
+                            },
+                        }
+                    },
+                    {
+                        opcode: 'indicateAchievementProgress',
+                        blockType: Scratch.BlockType.COMMAND,
+                        text: 'Achievement: Indicate [ACHIEVEMENT] Progress | Progress: [PROGRESS], Max: [MAX]',
+                        arguments: {
+                            ACHIEVEMENT: {
                             type: Scratch.ArgumentType.STRING,
                             defaultValue: ''
+                            },
+                            PROGRESS: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 0
+                            },
+                            MAX: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 10
+                            }
                         }
-                    }
-                },
-                {
-                    opcode: 'getStat',
-                    blockType: "reporter",
-                    text: 'Stats: Get Stat [STATNAME] | is it a float: [ISFLOAT]',
-                    arguments: {
-                        STATNAME: {
-                            type: "string",
-                            defaultValue: ""
-                        },
-                        ISFLOAT: {
-                            type: "number",
-                            defaultValue: false
+                    },
+                    {
+                        opcode: 'createLobby',
+                        blockType: Scratch.BlockType.BOOLEAN,
+                        text: 'Matchmaking: Create Lobby | Lobby Type: [LOBBYTYPE], Max Members: [MAXMEMBERS]',
+                        arguments: {
+                            LOBBYTYPE: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 1
+                            },
+                            MAXMEMBERS: {
+                                type: Scratch.ArgumentType.NUMBER,
+                                defaultValue: 4
+                            },
                         }
-                    }
-                },
-                {
-                    opcode: 'setStat',
-                    blockType: "Boolean",
-                    text: 'Stats: Set Stat [STATNAME] to [STATDATA]',
-                    arguments: {
-                        STATNAME: {
-                            type: "string",
-                            defaultValue: ""
-                        },
-                        STATDATA: {
-                            type: "number",
-                            defaultValue: ""
-                        }
-                    }
-                },
-                {
-                    opcode: 'storeStat',
-                    blockType: "command",
-                    text: 'Stats: Store Stats on Steams servers',
-                },
-                {
-                    opcode: 'awardAchievement',
-                    blockType: "command",
-                    text: 'Achievement: Award Achievement [ACHIEVEMENT]',
-                    arguments: {
-                        ACHIEVEMENT: {
-                            type: "string",
-                            defaultValue: ''
-                        },
-                    }
-                },
-                {
-                    opcode: 'ownsAchievement',
-                    blockType: "Boolean",
-                    text: 'Achievement: Owns [ACHIEVEMENT]',
-                    arguments: {
-                        ACHIEVEMENT: {
-                            type: "string",
-                            defaultValue: ''
-                        },
-                    }
-                },
-                {
-                    opcode: 'indicateAchievementProgress',
-                    blockType: "command",
-                    text: 'Achievement: Indicate [ACHIEVEMENT] Progress | Progress: [PROGRESS], Max: [MAX]',
-                    arguments: {
-                        ACHIEVEMENT: {
-                        type: "string",
-                        defaultValue: ''
-                        },
-                        PROGRESS: {
-                            type: "number",
-                            defaultValue: 0
-                        },
-                        MAX: {
-                            type: "number",
-                            defaultValue: 10
-                        }
-                    }
-                },
-                {
-                    opcode: 'createLobby',
-                    blockType: "Boolean",
-                    text: 'Matchmaking: Create Lobby | Lobby Type: [LOBBYTYPE], Max Members: [MAXMEMBERS]',
-                    arguments: {
-                        LOBBYTYPE: {
-                            type: "number",
-                            defaultValue: 1
-                        },
-                        MAXMEMBERS: {
-                            type: "number",
-                            defaultValue: 4
-                        },
-                    }
-                },
-            ]
+                    },
+                ]
+            };
         };
-    };
 
-    //Steam General:
-    initScratchworks()
-    {
-        if(greenworks.init())
+        //Steam General:
+        initScratchworks()
         {
-            return true;
-        }
-        return false;
-    }
-
-    mySteamId()
-    {
-
-    }
-
-    //Steam Authority:
-    hasSteamAppOwnership(args)
-    {
-        greenworks.getEncryptedAppTicket('test_content', function(ticket) {
-            console.log("ticket: " + ticket.toString('hex'));
-            var keyArray = [];
-            var secretKeyToSplit = args.SECRETKEY.replaceAll(' ', '');
-            var keyArrayStr = secretKeyToSplit.split(",");
-            var i = 0;
-            foreach(str in keyArrayStr)
+            if(greenworks.init())
             {
-                keyArray[i] = parseInt(str, 16);
-                
-                i++;
+                return true;
             }
-
-            var key = new Buffer.from(keyArray);
-
-            // Specify the secret key.
-            //var key = new Buffer(32);
-            // TODO: you must initialize Buffer key with the secret key of your game here,
-            // e.g. key = new Buffer([0x0a, ..., 0x0b]).
-            assert(key.length == greenworks.EncryptedAppTicketSymmetricKeyLength)
-            var decrypted_app_ticket = greenworks.decryptAppTicket(ticket, key);
-            if (decrypted_app_ticket) {
-              return (greenworks.isTicketForApp(decrypted_app_ticket, args.STEAMAPPID));
-              //            greenworks.getAppId()));
-              //console.log(greenworks.getTicketAppId(decrypted_app_ticket));
-              //console.log(greenworks.getTicketSteamId(decrypted_app_ticket));
-              //console.log(greenworks.getTicketIssueTime(decrypted_app_ticket));
-            }
-        }, function(err) { throw err; });
-    }
-
-    //Steam Stats:
-    getStat(args)
-    {
-        if(args.ISFLOAT == 1)
-        {
-            return greenworks.getStatFloat(args.STATNAME);
-        }
-        else
-        {
-            return greenworks.getStatInt(args.STATNAME);
-        }
-    }
-
-    setStat(args)
-    {
-        return greenworks.setStat(args.STATNAME, args.STATDATA);
-    }
-
-    storeStat()
-    {
-        greenworks.storeStats();
-    }
-
-    //Steam Achievements:
-    awardAchievement(args)
-    {
-        greenworks.activateAchievement(args.ACHIEVEMENT);
-    }
-
-    ownsAchievement(args)
-    {
-        return greenworks.getAchievement(args.ACHIEVEMENT);
-    }
-
-    indicateAchievementProgress(args)
-    {
-        greenworks.indicateAchievementProgress(args.ACHIEVEMENT, args.PROGRESS, args.MAX);
-    }
-
-    //Steam Matchmaking:
-    createLobby(args)
-    {
-        var createLobbyType;
-
-        if(args.LOBBYTYPE == 1)
-        {
-            createLobbyType = greenworks.ELobbyType.Private;
-        }
-        else if(args.LOBBYTYPE == 2)
-        {
-            createLobbyType = greenworks.ELobbyType.FriendsOnly;
-        }
-        else if(args.LOBBYTYPE == 3)
-        {
-            createLobbyType = greenworks.ELobbyType.Public;
-        }
-        else if(args.LOBBYTYPE == 4)
-        {
-            createLobbyType = greenworks.ELobbyType.Invisible;
-        }
-        else
-        {
             return false;
         }
 
-        if(greenworks.createLobby(createLobbyType, args.MAXMEMBERS) == greenworks.EResult.OK)
+        mySteamId()
         {
-            return true;
+
+        }
+
+        //Steam Authority:
+        hasSteamAppOwnership(args)
+        {
+            greenworks.getEncryptedAppTicket('test_content', function(ticket) {
+                console.log("ticket: " + ticket.toString('hex'));
+                var keyArray = [];
+                var secretKeyToSplit = args.SECRETKEY.replaceAll(' ', '');
+                var keyArrayStr = secretKeyToSplit.split(",");
+                var i = 0;
+                foreach(str in keyArrayStr)
+                {
+                    keyArray[i] = parseInt(str, 16);
+                    
+                    i++;
+                }
+
+                var key = new Buffer.from(keyArray);
+
+                // Specify the secret key.
+                //var key = new Buffer(32);
+                // TODO: you must initialize Buffer key with the secret key of your game here,
+                // e.g. key = new Buffer([0x0a, ..., 0x0b]).
+                assert(key.length == greenworks.EncryptedAppTicketSymmetricKeyLength)
+                var decrypted_app_ticket = greenworks.decryptAppTicket(ticket, key);
+                if (decrypted_app_ticket) {
+                return (greenworks.isTicketForApp(decrypted_app_ticket, args.STEAMAPPID));
+                //            greenworks.getAppId()));
+                //console.log(greenworks.getTicketAppId(decrypted_app_ticket));
+                //console.log(greenworks.getTicketSteamId(decrypted_app_ticket));
+                //console.log(greenworks.getTicketIssueTime(decrypted_app_ticket));
+                }
+            }, function(err) { throw err; });
+        }
+
+        //Steam Stats:
+        getStat(args)
+        {
+            if(args.ISFLOAT)
+            {
+                return greenworks.getStatFloat(args.STATNAME);
+            }
+            else
+            {
+                return greenworks.getStatInt(args.STATNAME);
+            }
+        }
+
+        setStat(args)
+        {
+            return greenworks.setStat(args.STATNAME, args.STATDATA);
+        }
+
+        storeStat()
+        {
+            greenworks.storeStats();
+        }
+
+        //Steam Achievements:
+        awardAchievement(args)
+        {
+            greenworks.activateAchievement(args.ACHIEVEMENT);
+        }
+
+        ownsAchievement(args)
+        {
+            return greenworks.getAchievement(args.ACHIEVEMENT);
+        }
+
+        indicateAchievementProgress(args)
+        {
+            greenworks.indicateAchievementProgress(args.ACHIEVEMENT, args.PROGRESS, args.MAX);
+        }
+
+        //Steam Matchmaking:
+        createLobby(args)
+        {
+            var createLobbyType;
+
+            if(args.LOBBYTYPE == 1)
+            {
+                createLobbyType = greenworks.ELobbyType.Private;
+            }
+            else if(args.LOBBYTYPE == 2)
+            {
+                createLobbyType = greenworks.ELobbyType.FriendsOnly;
+            }
+            else if(args.LOBBYTYPE == 3)
+            {
+                createLobbyType = greenworks.ELobbyType.Public;
+            }
+            else if(args.LOBBYTYPE == 4)
+            {
+                createLobbyType = greenworks.ELobbyType.Invisible;
+            }
+            else
+            {
+                return false;
+            }
+
+            if(greenworks.createLobby(createLobbyType, args.MAXMEMBERS) == greenworks.EResult.OK)
+            {
+                return true;
+            }
         }
     }
-}
+    Scratch.extensions.register(new Scratchworks());
+})(Scratch);
 
+/*
 (function() {
     var extensionInstance = new Scratchworks(window.vm.extensionManager.runtime, window)
     var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance)
     window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName)
 })()
+*/
+
 //Scratch.extensions.register(new Scratchworks());
