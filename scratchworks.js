@@ -9,7 +9,7 @@
             //this.requireJS.src = 'require.js';
             //this.win.document.body.append(this.requireJS);
             //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
-            this.greenworks = require('./greenworks');
+            this.greenworks = Scratch.vm.require('./greenworks');
             //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./greenworks.js"></script>';
             
             //this.greenworks = win.document.getElementsByTagName('head')[0].appendChild('<script src="./greenworks.js"></script>');
