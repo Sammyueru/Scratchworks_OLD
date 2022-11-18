@@ -20,21 +20,21 @@ class Scratchworks {
             "blocks": [
                 {
                     opcode: 'initScratchworks',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: "Boolean",
                     text: 'General: Initialize Scratchworks',
                 },
                 {
                     opcode: 'mySteamId DOES NOT WORK YET',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: "reporter",
                     text: 'General: Players Steam ID'
                 },
                 {
                     opcode: 'hasSteamAppOwnership',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: "Boolean",
                     text: 'Auth: Has Steam Application Ownership of [STEAMAPPID] with Secret Key of [SECRETKEY]',
                     arguments: {
                         STEAMAPPID: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: 480
                         },
                         SECRETKEY: {
@@ -45,91 +45,91 @@ class Scratchworks {
                 },
                 {
                     opcode: 'getStat',
-                    blockType: Scratch.BlockType.REPORTER,
+                    blockType: "reporter",
                     text: 'Stats: Get Stat [STATNAME] | is it a float: [ISFLOAT]',
                     arguments: {
                         STATNAME: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: "string",
                             defaultValue: ""
                         },
                         ISFLOAT: {
-                            type: Scratch.ArgumentType.BOOLEAN,
+                            type: "number",
                             defaultValue: false
                         }
                     }
                 },
                 {
                     opcode: 'setStat',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: "Boolean",
                     text: 'Stats: Set Stat [STATNAME] to [STATDATA]',
                     arguments: {
                         STATNAME: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: "string",
                             defaultValue: ""
                         },
                         STATDATA: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: ""
                         }
                     }
                 },
                 {
                     opcode: 'storeStat',
-                    blockType: Scratch.BlockType.COMMAND,
+                    blockType: "command",
                     text: 'Stats: Store Stats on Steams servers',
                 },
                 {
                     opcode: 'awardAchievement',
-                    blockType: Scratch.BlockType.COMMAND,
+                    blockType: "command",
                     text: 'Achievement: Award Achievement [ACHIEVEMENT]',
                     arguments: {
                         ACHIEVEMENT: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: "string",
                             defaultValue: ''
                         },
                     }
                 },
                 {
                     opcode: 'ownsAchievement',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: "Boolean",
                     text: 'Achievement: Owns [ACHIEVEMENT]',
                     arguments: {
                         ACHIEVEMENT: {
-                            type: Scratch.ArgumentType.STRING,
+                            type: "string",
                             defaultValue: ''
                         },
                     }
                 },
                 {
                     opcode: 'indicateAchievementProgress',
-                    blockType: Scratch.BlockType.COMMAND,
+                    blockType: "command",
                     text: 'Achievement: Indicate [ACHIEVEMENT] Progress | Progress: [PROGRESS], Max: [MAX]',
                     arguments: {
                         ACHIEVEMENT: {
-                        type: Scratch.ArgumentType.STRING,
+                        type: "string",
                         defaultValue: ''
                         },
                         PROGRESS: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: 0
                         },
                         MAX: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: 10
                         }
                     }
                 },
                 {
                     opcode: 'createLobby',
-                    blockType: Scratch.BlockType.BOOLEAN,
+                    blockType: "Boolean",
                     text: 'Matchmaking: Create Lobby | Lobby Type: [LOBBYTYPE], Max Members: [MAXMEMBERS]',
                     arguments: {
                         LOBBYTYPE: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: 1
                         },
                         MAXMEMBERS: {
-                            type: Scratch.ArgumentType.NUMBER,
+                            type: "number",
                             defaultValue: 4
                         },
                     }
@@ -190,7 +190,7 @@ class Scratchworks {
     //Steam Stats:
     getStat(args)
     {
-        if(args.ISFLOAT)
+        if(args.ISFLOAT == 1)
         {
             return greenworks.getStatFloat(args.STATNAME);
         }
