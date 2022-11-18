@@ -6,4 +6,4 @@ I'm is currently using Greenworks (https://github.com/greenheartgames/greenworks
 
 More info coming soon!
 
-Extension URL (Copy into TurboWarp): https://sammyueru.github.io/Scratchworks/scratchworks.js
+Extension URL (Copy into TurboWarp and add it as an extension): https://sammyueru.github.io/Scratchworks/scratchworks.js
