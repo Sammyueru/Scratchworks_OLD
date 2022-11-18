@@ -1,4 +1,3 @@
-# Scratchworks
 # Scratchworks [WIP]
 # Steamworks for Scratch
 Scratchworks is a steamworks extension for scratch (as the name implies)
