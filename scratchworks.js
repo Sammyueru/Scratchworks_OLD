@@ -247,4 +247,4 @@ class Scratchworks {
 }
 
 var greenworks = require('./greenworks');
-Scratch.extensions.register(new Scratchworks())
+Scratch.extensions.register(new Scratchworks());
