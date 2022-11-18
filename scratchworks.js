@@ -1,7 +1,7 @@
 class Scratchworks {
     getInfo() {
         return {
-            "id": "scratchworks",
+            "id": "Scratchworks",
             "name": "Scratchworks - Steamworks for TurboWarp",
 
             "blocks": [
@@ -19,39 +19,45 @@ class Scratchworks {
                     opcode: 'hasSteamAppOwnership',
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: 'Auth: Has Steam Application Ownership of [STEAMAPPID] with Secret Key of [SECRETKEY]',
-                    STEAMAPPID: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: 480
-                    },
-                    SECRETKEY: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: ''
+                    arguments: {
+                        STEAMAPPID: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: 480
+                        },
+                        SECRETKEY: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: ''
+                        }
                     }
                 },
                 {
                     opcode: 'getStat',
                     blockType: Scratch.BlockType.REPORTER,
                     text: 'Stats: Get Stat [STATNAME] | is it a float: [ISFLOAT]',
-                    STATNAME: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: ""
-                    },
-                    ISFLOAT: {
-                        type: Scratch.ArgumentType.BOOLEAN,
-                        defaultValue: false
+                    arguments: {
+                        STATNAME: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: ""
+                        },
+                        ISFLOAT: {
+                            type: Scratch.ArgumentType.BOOLEAN,
+                            defaultValue: false
+                        }
                     }
                 },
                 {
                     opcode: 'setStat',
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: 'Stats: Set Stat [STATNAME] to [STATDATA]',
-                    STATNAME: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: ""
-                    },
-                    STATDATA: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: ""
+                    arguments: {
+                        STATNAME: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: ""
+                        },
+                        STATDATA: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: ""
+                        }
                     }
                 },
                 {
@@ -63,49 +69,57 @@ class Scratchworks {
                     opcode: 'awardAchievement',
                     blockType: Scratch.BlockType.COMMAND,
                     text: 'Achievement: Award Achievement [ACHIEVEMENT]',
-                    ACHIEVEMENT: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: ''
-                    },
+                    arguments: {
+                        ACHIEVEMENT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: ''
+                        },
+                    }
                 },
                 {
                     opcode: 'ownsAchievement',
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: 'Achievement: Owns [ACHIEVEMENT]',
-                    ACHIEVEMENT: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: ''
-                    },
+                    arguments: {
+                        ACHIEVEMENT: {
+                            type: Scratch.ArgumentType.STRING,
+                            defaultValue: ''
+                        },
+                    }
                 },
                 {
                     opcode: 'indicateAchievementProgress',
                     blockType: Scratch.BlockType.COMMAND,
                     text: 'Achievement: Indicate [ACHIEVEMENT] Progress | Progress: [PROGRESS], Max: [MAX]',
-                    ACHIEVEMENT: {
+                    arguments: {
+                        ACHIEVEMENT: {
                         type: Scratch.ArgumentType.STRING,
                         defaultValue: ''
-                    },
-                    PROGRESS: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: 0
-                    },
-                    MAX: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: 10
+                        },
+                        PROGRESS: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: 0
+                        },
+                        MAX: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: 10
+                        }
                     }
                 },
                 {
                     opcode: 'createLobby',
                     blockType: Scratch.BlockType.BOOLEAN,
                     text: 'Matchmaking: Create Lobby | Lobby Type: [LOBBYTYPE], Max Members: [MAXMEMBERS]',
-                    LOBBYTYPE: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: 1
-                    },
-                    MAXMEMBERS: {
-                        type: Scratch.ArgumentType.NUMBER,
-                        defaultValue: 4
-                    },
+                    arguments: {
+                        LOBBYTYPE: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: 1
+                        },
+                        MAXMEMBERS: {
+                            type: Scratch.ArgumentType.NUMBER,
+                            defaultValue: 4
+                        },
+                    }
                 },
             ]
         };
@@ -232,5 +246,5 @@ class Scratchworks {
     }
 }
 
-var greenworks = require('./greenworks-master/greenworks');
-Scratch.extensions.register(new Scratchworks())
+var greenworks = require('./greenworks');
+Scratch.extensions.register(new Scratchworks());
