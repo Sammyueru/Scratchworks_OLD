@@ -1,5 +1,5 @@
 class Scratchworks {
-    constructor (runtime, extensionId) {
+    constructor (runtime) {
 		this.runtime = runtime;
         this.greenworks = require('./greenworks');
     }
@@ -256,3 +256,4 @@ class Scratchworks {
     var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance)
     window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName)
 })()
+//Scratch.extensions.register(new Scratchworks());
