@@ -1,17 +1,19 @@
+greenworks = Scratch.vm.require('./greenworks');
+
 (function(Scratch) {
     'use strict';
     class Scratchworks {
-        constructor (runtime, win) {
+        constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.win = win;
+            //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
             //this.requireJS.src = 'require.js';
             //this.win.document.body.append(this.requireJS);
             //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
-            this.greenworks = Scratch.vm.require('./greenworks');
+
             //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./greenworks.js"></script>';
-            
+            //this.greenworks = Scratch.vm.require('./greenworks');
             //this.greenworks = win.document.getElementsByTagName('head')[0].appendChild('<script src="./greenworks.js"></script>');
         }
 
