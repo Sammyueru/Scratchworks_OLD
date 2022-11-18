@@ -1,4 +1,9 @@
 class Scratchworks {
+    constructor (runtime, extensionId) {
+		this.runtime = runtime;
+        this.greenworks = require('./greenworks');
+    }
+
     getInfo() {
         return {
             "id": "Scratchworks",
@@ -246,5 +251,4 @@ class Scratchworks {
     }
 }
 
-var greenworks = require('./greenworks');
 Scratch.extensions.register(new Scratchworks());
