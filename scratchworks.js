@@ -1,4 +1,4 @@
-greenworks = Scratch.vm.require('./greenworks');
+greenworks = require('./greenworks');
 
 (function(Scratch) {
     'use strict';
