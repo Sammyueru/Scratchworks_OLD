@@ -3,7 +3,9 @@ class Scratchworks {
 		this.runtime = runtime;
         this.win = win;
         this.document = win.document;
-        this.requireJS = win.document.createElement('require.js');
+        this.requireJS = win.document.createElement('script');
+        this.requireJS.src = 'require.js';
+        this.win.document.body.append(this.requireJS);
         this.greenworks = require(['./greenworks']);
     }
 
