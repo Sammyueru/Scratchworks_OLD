@@ -3,23 +3,24 @@
 // found in the LICENSE file.
 
 // The source code can be found in https://github.com/greenheartgames/greenworks
-var fs = require('fs');
+
+var fs = require(['fs']);
 
 var greenworks;
 
 if (process.platform == 'darwin') {
   if (process.arch == 'x64')
-    greenworks = require(__dirname + '/lib/greenworks-osx64');
+    greenworks = require([__dirname + '/lib/greenworks-osx64']);
 } else if (process.platform == 'win32') {
   if (process.arch == 'x64')
-    greenworks = require(__dirname + '/lib/greenworks-win64');
+    greenworks = require([__dirname + '/lib/greenworks-win64']);
   else if (process.arch == 'ia32')
-    greenworks = require(__dirname + '/lib/greenworks-win32');
+    greenworks = require([__dirname + '/lib/greenworks-win32']);
 } else if (process.platform == 'linux') {
   if (process.arch == 'x64')
-    greenworks = require(__dirname + '/lib/greenworks-linux64');
+    greenworks = require([__dirname + '/lib/greenworks-linux64']);
   else if (process.arch == 'ia32')
-    greenworks = require(__dirname + '/lib/greenworks-linux32');
+    greenworks = require([__dirname + '/lib/greenworks-linux32']);
 }
 
 function error_process(err, error_callback) {
@@ -190,7 +191,7 @@ greenworks.init = function() {
   } catch (e) {
     throw new Error("Steam initialization failed. Steam is running," +
                     "but steam_appid.txt is missing. Expected to find it in: " +
-                    require('path').resolve('steam_appid.txt'));
+                    require(['path']).resolve('steam_appid.txt'));
   }
   if (!/^\d+ *\r?\n?$/.test(appId)) {
     throw new Error("Steam initialization failed. " +
@@ -202,7 +203,7 @@ greenworks.init = function() {
                   "Maybe that's not really YOUR app ID? " + appId.trim());
 }
 
-var EventEmitter = require('events').EventEmitter;
+var EventEmitter = require(['events']).EventEmitter;
 greenworks.__proto__ = EventEmitter.prototype;
 EventEmitter.call(greenworks);
 

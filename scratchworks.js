@@ -1,7 +1,10 @@
 class Scratchworks {
-    constructor (runtime) {
-	this.runtime = runtime;
-        this.greenworks = require('./greenworks');
+    constructor (runtime, win) {
+		this.runtime = runtime;
+        this.win = win;
+        this.document = win.document;
+        this.requireJS = win.document.createElement('require.js');
+        this.greenworks = require(['./greenworks']);
     }
 
     getInfo() {
@@ -252,7 +255,7 @@ class Scratchworks {
 }
 
 (function() {
-    var extensionInstance = new Scratchworks(window.vm.extensionManager.runtime)
+    var extensionInstance = new Scratchworks(window.vm.extensionManager.runtime, window)
     var serviceName = window.vm.extensionManager._registerInternalExtension(extensionInstance)
     window.vm.extensionManager._loadedExtensions.set(extensionInstance.getInfo().id, serviceName)
 })()
