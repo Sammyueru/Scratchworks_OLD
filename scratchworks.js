@@ -1,6 +1,6 @@
 class Scratchworks {
-    constructor (runtime, extensionId) {
-		this.runtime = runtime;
+    constructor (runtime) {
+		    this.runtime = runtime;
         this.greenworks = require('./greenworks');
     }
 
