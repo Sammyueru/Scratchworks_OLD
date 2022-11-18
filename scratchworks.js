@@ -1,4 +1,4 @@
-greenworks = require('./greenworks');
+const greenworks = require('./greenworks');
 
 (function(Scratch) {
     'use strict';
