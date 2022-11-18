@@ -1,11 +1,12 @@
 class Scratchworks {
     constructor (runtime, win) {
-		this.runtime = runtime;
+	this.runtime = runtime;
         this.win = win;
         this.document = win.document;
-        this.requireJS = win.document.createElement('script');
-        this.requireJS.src = 'require.js';
-        this.win.document.body.append(this.requireJS);
+        //this.requireJS = win.document.createElement('script');
+        //this.requireJS.src = 'require.js';
+        //this.win.document.body.append(this.requireJS);
+        win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
         this.greenworks = require(['./greenworks']);
     }
 
