@@ -3,7 +3,7 @@
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = window.document.require('./greenworks');
+            //this.greenworks = window.document.require('./greenworks');
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
@@ -11,7 +11,7 @@
             //this.win.document.body.append(this.requireJS);
             //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./require.js"></script>';
 
-            //win.document.head.innerHTML = win.document.head.innerHTML + '<script src="./greenworks.js"></script>';
+            window.document.head.innerHTML = window.document.head.innerHTML + '<script src="./greenworks.js"></script>';
             //this.greenworks = Scratch.vm.require('./greenworks');
             //this.greenworks = win.document.getElementsByTagName('head')[0].appendChild('<script src="./greenworks.js"></script>');
         }
