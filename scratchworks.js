@@ -1,4 +1,4 @@
-window.document.head.innerHTML = window.document.head.innerHTML + '<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
+window.document.head.innerHTML = window.document.head.innerHTML + '<script data-main="./scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
 //document.getElementsByTagName('head')[0].appendChild('<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>');
 //import { require } from requireJS;
 //import { require } from "https://sammyueru.github.io/Scratchworks/require.js";
