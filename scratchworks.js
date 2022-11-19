@@ -1,18 +1,27 @@
-//window.document.head.innerHTML = window.document.head.innerHTML + '<script type="module" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
-var requireJS = document.getElementsByTagName('head')[0].appendChild('<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>');
-import { require } from requireJS;
+window.document.head.innerHTML = window.document.head.innerHTML + '<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
+//document.getElementsByTagName('head')[0].appendChild('<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>');
+//import { require } from requireJS;
 //import { require } from "https://sammyueru.github.io/Scratchworks/require.js";
 //import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
 
 //window.webPreferences.nodeIntegration = true;
 
+requirejs.config({
+    //By default load any module IDs from js/lib
+    baseUrl: 'https://sammyueru.github.io/Scratchworks',
+    //except, if the module ID starts with "app",
+    //load it from the js/app directory. paths
+    //config is relative to the baseUrl, and
+    //never includes a ".js" extension since
+    //the paths config could be for a directory.
+});
 
 (function(Scratch) {
     'use strict';
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = require(['https://sammyueru.github.io/Scratchworks/greenworks.js']);
+            this.greenworks = requirejs(['greenworks.js']);
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
