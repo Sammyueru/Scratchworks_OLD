@@ -1,12 +1,8 @@
 //window.document.head.innerHTML = window.document.head.innerHTML + '<script type="module" src="https://sammyueru.github.io/Scratchworks/greenworks.js"></script>';
 //import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
 
-window = Window({
-    webPreferences: {
-        nodeIntegration: true,
-        contextIsolation: false
-    }
-});
+window.webPreferences.nodeIntegration = true;
+
 
 (function(Scratch) {
     'use strict';
