@@ -1,9 +1,9 @@
 (function(Scratch) {
     'use strict';
     class Scratchworks {
-        constructor (runtime, win) { //, win) {
+        constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = win.document.require('./greenworks');
+            this.greenworks = window.document.require('./greenworks');
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
@@ -262,7 +262,7 @@
             }
         }
     }
-    Scratch.extensions.register(new Scratchworks(runtime, window));
+    Scratch.extensions.register(new Scratchworks());
 })(Scratch);
 
 /*
