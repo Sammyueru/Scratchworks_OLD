@@ -1,21 +1,22 @@
-window.document.head.innerHTML = window.document.head.innerHTML + '<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
+//window.document.head.innerHTML = window.document.head.innerHTML + '<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
 //document.getElementsByTagName('head')[0].appendChild('<script data-main="https://sammyueru.github.io/Scratchworks/scratchworks.js" src="https://sammyueru.github.io/Scratchworks/require.js"></script>');
 //import { require } from requireJS;
 //import { require } from "https://sammyueru.github.io/Scratchworks/require.js";
 //import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
 
 //window.webPreferences.nodeIntegration = true;
-
+/*
 require.config({
     baseUrl: 'https://sammyueru.github.io/Scratchworks',
 });
+*/
 
 (function(Scratch) {
     'use strict';
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = require(['greenworks.js']);
+            this.greenworks = require('./greenworks.js');
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
