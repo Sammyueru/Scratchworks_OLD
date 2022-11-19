@@ -6,7 +6,7 @@
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            window = new BrowserWindow({
+            window = new Window({
                 webPreferences: {
                     nodeIntegration: true,
                     contextIsolation: false
