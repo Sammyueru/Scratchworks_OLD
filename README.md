@@ -2,6 +2,9 @@
 # Steamworks for Scratch
 Scratchworks is a steamworks extension for scratch (as the name implies)
 
+NOTE: This extension will not work no matter what I do unless I build it with TurboWarp directly
+which is what I will be doing
+
 Note: this extension works with TurboWarp (which uses Scratch's source code) not scratch itself
 
 I'm is currently using Greenworks (https://github.com/greenheartgames/greenworks) as a base
