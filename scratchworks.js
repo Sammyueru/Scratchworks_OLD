@@ -28,9 +28,9 @@
                         text: 'General: Initialize Scratchworks',
                     },
                     {
-                        opcode: 'mySteamId DOES NOT WORK YET',
+                        opcode: 'mySteamId',
                         blockType: Scratch.BlockType.REPORTER,
-                        text: 'General: Players Steam ID'
+                        text: 'General: Players Steam ID (DOES NOT WORK YET)'
                     },
                     {
                         opcode: 'hasSteamAppOwnership',
