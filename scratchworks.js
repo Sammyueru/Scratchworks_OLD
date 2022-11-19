@@ -1,12 +1,18 @@
-window.document.body.innerHTML = window.document.body.innerHTML + '<script type="module" src="https://sammyueru.github.io/Scratchworks/greenworks.js"></script>';
-import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
+//window.document.head.innerHTML = window.document.head.innerHTML + '<script type="module" src="https://sammyueru.github.io/Scratchworks/greenworks.js"></script>';
+//import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
 
 (function(Scratch) {
     'use strict';
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            //this.greenworks = window.document.require('./greenworks');
+            window = new BrowserWindow({
+                webPreferences: {
+                    nodeIntegration: true,
+                    contextIsolation: false
+                }
+            });
+            this.greenworks = require('./greenworks');
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
