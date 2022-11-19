@@ -1,4 +1,4 @@
-window.document.head.innerHTML = window.document.head.innerHTML + '<script src="require.js"></script>';
+window.document.head.innerHTML = window.document.head.innerHTML + '<script src="https://sammyueru.github.io/Scratchworks/require.js"></script>';
 //import { greenworks } from "https://sammyueru.github.io/Scratchworks/greenworks.js";
 
 //window.webPreferences.nodeIntegration = true;
@@ -9,7 +9,7 @@ window.document.head.innerHTML = window.document.head.innerHTML + '<script src="
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = require(['./greenworks']);
+            this.greenworks = require(['https://sammyueru.github.io/Scratchworks/greenworks.js']);
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
