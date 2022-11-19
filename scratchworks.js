@@ -6,7 +6,7 @@ window.document.head.innerHTML = window.document.head.innerHTML + '<script data-
 
 //window.webPreferences.nodeIntegration = true;
 
-requirejs.config({
+require.config({
     //By default load any module IDs from js/lib
     baseUrl: 'https://sammyueru.github.io/Scratchworks',
     //except, if the module ID starts with "app",
@@ -21,7 +21,7 @@ requirejs.config({
     class Scratchworks {
         constructor (runtime) { //, win) {
             this.runtime = runtime;
-            this.greenworks = requirejs(['greenworks.js']);
+            this.greenworks = require(['greenworks.js']);
             //this.win = win;
             //this.document = win.document;
             //this.requireJS = win.document.createElement('script');
