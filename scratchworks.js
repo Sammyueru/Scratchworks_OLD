@@ -19,7 +19,7 @@
         getInfo() {
             return {
                 "id": "Scratchworks",
-                "name": "Scratchworks - Steamworks for TurboWarp",
+                "name": "Scratchworks",
 
                 "blocks": [
                     {
